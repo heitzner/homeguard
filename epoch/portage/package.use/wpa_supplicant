@@ -1,7 +1,0 @@
-# required by media-video/obs-studio-32.0.4-r1::gentoo
-# required by =media-video/obs-studio-32.0.4-r1 (argument)
->=media-video/ffmpeg-8.1.1 opus
-# required by dev-libs/libayatana-appindicator-0.5.94::gentoo
-# required by net-im/discord-0.0.135::gentoo[appindicator]
-# required by net-im/discord (argument)
->=dev-libs/libdbusmenu-16.04.0-r4 gtk3

@@ -1,0 +1,42 @@
+# video_cards
+*/* VIDEO_CARDS: -* intel nvidia
+
+# discord
+net-im/discord appindicator
+dev-libs/libdbusmenu gtk3
+
+# installkernel
+sys-kernel/installkernel grub ugrd
+
+# KDE 
+x11-base/xwayland xcsecurity
+gui-libs/gtk X
+dev-qt/qtbase:6 X
+media-libs/phonon qt6
+media-video/ffmpeg postproc vpx x264 x265
+kde-plasma/plasma-nm -modemmanager
+dev-qt/qttools qdbus
+
+# networkmanager
+net-misc/networkmanager -ppp
+
+# open broadcasting software
+media-video/obs-studio lua pulseaudio speex v4l
+media-video/ffmpeg opus
+
+# pipewire
+media-video/pipewire sound-server extra dbus
+
+# seat daemon
+sys-auth/seatd server
+
+# claude
+dev-util/claude-code cpu_flags_x86_avx cpu_flags_x86_avx2
+
+# samba
+net-fs/samba gnutls
+net-libs/libsoup gnutls
+dev-util/ostree gnutls
+sys-apps/flatpak gnutls
+net-libs/ngtcp gnutls
+net-libs/ngtcp2 gnutls

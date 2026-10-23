@@ -1,0 +1,10 @@
+sys-power/throttled ~amd64
+app-misc/keyd ~amd64
+media-video/obs-studio
+media-plugins/obs-pipewire-audio-capture ~amd64
+=gui-apps/packettracer-9.0.1 ~amd64
+app-text/marknote ~amd64
+app-misc/zellij ~amd64
+sys-fs/duf ~amd64
+app-misc/claude-desktop-bin ~amd64
+net-libs/nodejs ~amd64

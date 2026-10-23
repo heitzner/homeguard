@@ -1,1 +1,0 @@
-www-client/firefox clang lto pgo gmp-autoupdate pulseaudio dbus system-av1 system-harfbuzz system-icu system-jpeg system-libevent system-libvpx system-webp jumbo-build -wayland -eme-free -hardened -jack -gnome-shell -telemetry

@@ -1,0 +1,5 @@
+# networkmanager
+net-dialup/ppp
+
+# nvidia-driver
+>=x11-drivers/nvidia-drivers-581

@@ -1,1 +1,0 @@
-media-video/obs-studio -sndio -decklink -nvenc -pipewire lua speex v4l

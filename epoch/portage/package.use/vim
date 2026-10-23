@@ -1,7 +1,0 @@
-app-editors/vim -sound
-# required by www-client/firefox-140.11.0::gentoo[system-libvpx]
-# required by www-client/firefox (argument)
->=media-libs/libvpx-1.16.0 postproc
-# required by www-client/firefox-140.11.0::gentoo[X,pgo]
-# required by www-client/firefox (argument)
->=x11-base/xorg-server-21.1.22 xvfb
