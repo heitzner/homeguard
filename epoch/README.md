@@ -1,77 +1,129 @@
 # Epoch 
-### Little nerdy fact - this was the original name of Gentoo Linux, thought I needed to share that one :P
 
-> (incomplete, will update at some point)
+> I now use KDE Plasma, but I will keep the i3 configuration files as part of the archive.
 
-Here is a table list of the packages I installed to setup i3wm.
-
-### In Gentoo repository:
-
-| Packages             | Do you need this?          |
-| ------------------   | ------------------- | 
-| app-admin/sudo | yes, can use doas for alternative |
-| app-editors/vim | yes |
-| app-eselect/eselect-repository | yes |
-| app-misc/fastfetch | no |
-| app-misc/jq | no |
-| app-office/onlyoffice-bin | depends |
-| app-portage/eix | yes |
-| app-portage/gentoolkit | yes |
-| app-shells/bash-completion | no |
-| app-text/tree | no |
-| dev-java/openjdk-bin:8 | no |
-| dev-vcs/git | yes |
-| lxde-base/lxappearance | yes |
-| mail-client/thunderbird-bin | depends |
-| media-fonts/fonts-meta | yes |
-| media-fonts/corefonts | depends |
-| media-fonts/noto | yes |
-| media-fonts/noto-cjk | depends |
-| media-fonts/noto-emoji | yes |
-| media-gfx/blender | no |
-| media-gfx/feh | yes |
-| media-gfx/flameshot | yes |
-| media-libs/libpulse | yes |
-| media-sound/alsa-tools | yes |
-| media-sound/alsa-utils | yes |
-| media-sound/pulseaudio-daemon | yes |
-| media-video/mpv | yes |
-| media-video/obs-studio | yes |
-| net-im/discord | no |
-| net-misc/networkmanager | yes, easy setup for wifi on laptops |
-| sys-apps/qingy | depends |
-| sys-apps/xdg-desktop-portal | yes |
-| sys-apps/xdg-desktop-portal-gtk | yes |
-| sys-power/acpi | if using laptop, yes |
-| sys-power/tlp | if using laptop, yes |
-| sys-process/btop | yes |
-| www-client/ungoogled-chromium | preference |
-| x11-apps/xinit | yes |
-| x11-misc/dunst | yes |
-| x11-misc/i3lock | depends |
-| x11-misc/i3status | yes |
-| x11-misc/j4-dmenu-desktop | yes, can also use rofi or dmenu |
-| x11-misc/pcmanfm | preference |
-| x11-misc/picom | yes |
-| x11-misc/screenkey | depends |
-| x11-misc/xclip | yes |
-| x11-misc/xdg-user-dirs | yes |
-| x11-misc/xdg-utils | yes |
-| x11-terms/xfce4-terminal | yes |
-| x11-themes/arc-icon-theme | yes |
-| x11-themes/arc-theme | yes |
-| x11-wm/i3 | totally |
-
-### In GURU:
-
-| Packages                | Essential? |
-| ----------------------- | ---------- |
-| app-misc/brightnessctl | if using laptop, yes        |
-| gui-apps/packettracer | no |
-| x11-misc/xob            | if using laptop, yes   |
-| sys-fs/duf              | no         |
+## Legend:
+<details>
+ <summary>List</summary>
  
-# Optional - Packet Tracer
+- [R] - **Required**
+
+- [o] - **Optional**
+
+- [nR] - **Not Required/Needed**
+
+- [E] - **Essential**
+
+- [re] - **Recommended**
+
+- [x11] - **X11 Program, unlikely to run on Wayland**
+
+- [w] - **Wayland Program, mostly native**
+
+- [w2x] - **Program can run on either X11 or Wayland**
+
+- [G] - **Can be installed from the Gentoo Repository**
+
+- [gr] - **Package is outside of Gentoo Repository, lives in GURU**
+
+- [RC] - **OpenRC Specific**
+
+- [SYSD] - **Systemd Specific**
+
+- [F] - **Flatpak Program**
+
+- [K] - **KDE**
+
+</details>
+
+### A combination of this would look like:
+
+```
+sys-devel/gcc [RreE]
+```
+
+<details>
+ <summary>Package list, and their combinations</summary>
+
+|          |               |
+| --------------- | ------------- | 
+|app-admin/eclean-kernel|  [reG]
+|app-admin/sudo| [oG]
+|app-admin/sysklogd| [reRCG]
+|app-editors/emacs| [oG]
+|app-editors/featherpad| [ow2xG]
+|app-editors/neovim| [ow2xG]
+|app-editors/vim| [ow2xG]
+|app-editors/vscode| [Ew2xG]
+|app-eselect/eselect-repository| [EG]
+|app-misc/fastfetch| [oG]
+|app-misc/keyd| [nRwgr]
+|app-misc/tmux| [ow2xG]
+|app-misc/zellij| [ow2xG]
+|app-office/onlyoffice-bin| [rew2xG]
+|app-portage/genlop| [reEG]
+|app-portage/gentoolkit| [reEG]
+|app-portage/smart-live-rebuild| [oG]
+|app-shells/bash-completion| [oreG]
+|app-shells/fzf| [reG]
+|app-shells/starship| [oG]
+|app-text/marknote| [nrF]
+|app-text/tree| [oG]
+|dev-qt/qttools| [oG]
+|dev-util/github-cli| [oreG]
+|dev-vcs/git| [RG]
+|gui-apps/foot| [owG]
+|gui-apps/wl-clipboard| [owG]
+|kde-apps/dolphin| [Kw2xG]
+|kde-apps/filelight| [Kw2xG]
+|kde-plasma/plasma-meta| [Kw2xG]
+|kde-plasma/plasma-pa| [Kw2xG]
+|media-fonts/corefonts| [oreG]
+|media-fonts/noto| [oreG]
+|media-gfx/flameshot| [oGw2x]
+|media-gfx/nomacs| [oGw2x]
+|media-libs/libva-intel-driver| [oG]
+|media-libs/svt-av1| [oG]
+|media-libs/woff2| [oG]
+|media-plugins/gst-plugins-opus| [oG]
+|media-plugins/obs-pipewire-audio-capture| [oG]
+|media-video/ffmpegthumbnailer| [reG]
+|media-video/mpv| [reG]
+|media-video/obs-studio| [reG]
+|net-im/discord| [oG]
+|net-libs/nodejs| [oG]
+|net-misc/networkmanager| [oG]
+|sys-apps/bat| [nRG]
+|sys-apps/dmidecode| [oG]
+|sys-apps/eza| [nRG]
+|sys-apps/flatpak| [oG]
+|sys-apps/mlocate| [oG]
+|sys-apps/xdg-dbus-proxy| [EG]
+|sys-auth/rtkit| [EG]
+|sys-auth/seatd| [RCEG]
+|sys-boot/grub| [EG]
+|sys-fs/duf| [oG]
+|sys-fs/fuse:0| [oG]
+|sys-kernel/gentoo-kernel-bin| [EG]
+|sys-kernel/installkernel| [EG]
+|sys-kernel/linux-firmware| [EG]
+|sys-kernel/modprobed-db| [oG]
+|sys-kernel/ugrd| [EreG]
+|sys-libs/ncurses| [EG]
+|sys-power/throttled| [oG]
+|sys-process/btop| [oG]
+|sys-process/cronie| [oRCG]
+|sys-process/nvtop| [oG]
+|www-client/google-chrome| [oG]
+|x11-drivers/nvidia-drivers| [oG]
+|gui-apps/packettracer| [oG]
+
+</details>
+
+# Archived Section
+
+### Optional - Packet Tracer (trying from KDE Plasma >=6.8.7, this works now out of the box without anything needed)
+
 I would be about 99.5% sure that no one would even use this, in Gentoo. But apparently I do. Thanks to this [reddit thread](https://www.reddit.com/r/Gentoo/comments/1qk403f/how_to_get_packet_tracer_822_working_on_gentoo/).
 
 ### Requirements:
