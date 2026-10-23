@@ -1,6 +1,0 @@
-# GIMP gimp-perspective-tool options
-
-(background
-    (color "R'G'B'A double" 32 "\0\0\0\140H\32\272\77\0\0\0\140I\33\273\77\0\0\0\300\50\23\303\77\0\0\0\0\0\0\360\77" 0))
-
-# end of gimp-perspective-tool options
