@@ -5,6 +5,7 @@
 - [[epoch]](./epoch)
 - [[deborah]](./deborah)
 - [[snowflake]](./snowflake)
+- [[pegasus]](./pegasus)
 
 > The "unmaintained" folder is my archived folder, it hasn't been used for a while so they may or may not work.
 

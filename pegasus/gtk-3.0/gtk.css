@@ -1,0 +1,8 @@
+@define-color theme_bg_color #f5f1ea;
+@define-color theme_base_color #f5f1ea;
+@define-color theme_fg_color #3b3a45;
+@define-color theme_text_color #3b3a45;
+@define-color theme_selected_bg_color #b8a9d9;
+@define-color theme_selected_fg_color #3b3a45;
+@define-color insensitive_bg_color #e8e2f0;
+@define-color borders #c9c2d6;

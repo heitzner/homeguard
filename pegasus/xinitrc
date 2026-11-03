@@ -1,0 +1,10 @@
+#!/bin/sh
+export QT_QPA_PLATFORMTHEME=gtk3
+
+exec dbus-run-session sh -c '
+	pipewire &
+	i3
+	pkill -u "$USER" -x "pipewire|pipewire-pulse|wireplumber"
+ '
+
+

@@ -1,0 +1,38 @@
+[font]
+size = 9.5
+
+[font.normal]
+family = "ProFontIIxNerdFont"
+style = "Regular"
+
+[colors.primary]
+background = "#f5f1ea"
+foreground = "#3b3a45"
+
+[colors.cursor]
+text = "#f5f1ea"
+cursor = "#7a6aa8"
+
+[colors.selection]
+text = "#3b3a45"
+background = "#d9cfee"
+
+[colors.normal]
+black = "#3b3a45"
+red = "#b5495b"
+green = "#3f7d5c"
+yellow = "#9a6b1f"
+blue = "#3d6a99"
+magenta = "#7a5aa8"
+cyan = "#2f7f84"
+white = "#cfc9d9"
+
+[colors.bright]
+black = "#6e6a7c"
+red = "#c9606f"
+green = "#559474"
+yellow = "#b08236"
+blue = "#5582b0"
+magenta = "#9174bd"
+cyan = "#45979c"
+white = "#e8e2f0"

@@ -1,0 +1,186 @@
+set $mod Mod4
+set $term alacritty
+set $font Tahoma
+
+font pango:$font 11
+floating_modifier $mod
+tiling_drag modifier titlebar
+workspace_auto_back_and_forth yes
+focus_follows_mouse no
+
+default_border pixel 2
+default_floating_border pixel 2
+gaps inner 6
+smart_gaps on
+smart_borders on
+
+client.focused          #b8a9d9 #b8a9d9 #3b3a45 #a8d8c0 #b8a9d9
+client.focused_inactive #e8e2f0 #e8e2f0 #3b3a45 #e8e2f0 #e8e2f0
+client.unfocused        #f5f1ea #f5f1ea #6e6a7c #f5f1ea #e8e2f0
+client.urgent           #f0b6c4 #f0b6c4 #3b3a45 #f0b6c4 #f0b6c4
+client.background       #f5f1ea
+
+# autostart 
+exec --no-startup-id feh --no-fehbg --bg-tile ~/.local/share/bg.ppm
+exec --no-startup-id picom -b
+exec --no-startup-id dunst
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -c f5f1ea
+exec --no-startup-id /usr/libexec/xfce-polkit
+exec --no-startup-id $term --class scratchterm
+
+# window rules
+for_window [window_type="dialog"] floating enable
+for_window [window_role="pop-up"] floating enable
+for_window [instance="nmtui"] floating enable
+for_window [class="Blueman-manager"] floating enable
+for_window [instance="scratchterm"] floating enable, resize set 900 480, move scratchpad
+
+# apps
+bindsym $mod+Return exec --no-startup-id $term
+bindsym $mod+d exec --no-startup-id j4-dmenu-desktop --dmenu="dmenu -i -fn 'ProFontIIxNerdFont:size=11' -nb '#f5f1ea' -nf '#3b3a45' -sb '#b8a9d9' -sf '#3b3a45'"
+bindsym $mod+n exec --no-startup-id $term --class nmtui -e nmtui
+bindsym $mod+b exec --no-startup-id blueman-manager
+bindsym Print exec --no-startup-id flameshot gui
+
+# media keys 
+bindsym XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+
+bindsym XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym XF86AudioMute exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym XF86AudioMicMute exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 5%+
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+
+# focus / move / resize (vim keys, arrows kept as fallback)
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+Shift+h move left 30 px
+bindsym $mod+Shift+j move down 30 px
+bindsym $mod+Shift+k move up 30 px
+bindsym $mod+Shift+l move right 30 px
+bindsym $mod+Shift+Left move left 30 px
+bindsym $mod+Shift+Down move down 30 px
+bindsym $mod+Shift+Up move up 30 px
+bindsym $mod+Shift+Right move right 30 px
+
+bindsym $mod+Ctrl+h resize shrink width 30 px or 3 ppt
+bindsym $mod+Ctrl+j resize grow height 30 px or 3 ppt
+bindsym $mod+Ctrl+k resize shrink height 30 px or 3 ppt
+bindsym $mod+Ctrl+l resize grow width 30 px or 3 ppt
+
+mode "resize" {
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# layout
+bindsym $mod+g split h
+bindsym $mod+v split v
+bindsym $mod+e layout toggle split
+bindsym $mod+w layout tabbed
+bindsym $mod+s layout stacking
+bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+bindsym $mod+a focus parent
+bindsym $mod+c focus child
+bindsym $mod+q kill
+
+# vim-style marks: $mod+m then a letter to mark, $mod+' then the letter to jump
+bindsym $mod+m exec --no-startup-id i3-input -F 'mark --toggle %s' -l 1 -P 'Mark: '
+bindsym $mod+apostrophe exec --no-startup-id i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Go to: '
+
+# scratchpad
+bindsym $mod+grave [instance="scratchterm"] scratchpad show, move position center
+bindsym $mod+minus scratchpad show
+bindsym $mod+Shift+minus move scratchpad
+
+# workspaces
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+bindsym $mod+Tab workspace back_and_forth
+
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+# move and follow
+bindsym $mod+Ctrl+1 move container to workspace number $ws1; workspace number $ws1
+bindsym $mod+Ctrl+2 move container to workspace number $ws2; workspace number $ws2
+bindsym $mod+Ctrl+3 move container to workspace number $ws3; workspace number $ws3
+bindsym $mod+Ctrl+4 move container to workspace number $ws4; workspace number $ws4
+bindsym $mod+Ctrl+5 move container to workspace number $ws5; workspace number $ws5
+bindsym $mod+Ctrl+6 move container to workspace number $ws6; workspace number $ws6
+bindsym $mod+Ctrl+7 move container to workspace number $ws7; workspace number $ws7
+bindsym $mod+Ctrl+8 move container to workspace number $ws8; workspace number $ws8
+bindsym $mod+Ctrl+9 move container to workspace number $ws9; workspace number $ws9
+bindsym $mod+Ctrl+0 move container to workspace number $ws10; workspace number $ws10
+
+# session
+set $sys "[l]ock  [e]xit  [s]uspend  [r]eboot  [S]hutdown"
+mode $sys {
+    bindsym l exec --no-startup-id loginctl lock-session, mode "default"
+    bindsym e exit
+    bindsym s exec --no-startup-id loginctl suspend, mode "default"
+    bindsym r exec --no-startup-id loginctl reboot
+    bindsym Shift+s exec --no-startup-id loginctl poweroff
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+bindsym $mod+Shift+e mode $sys
+bindsym $mod+Escape exec --no-startup-id loginctl lock-session
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+
+bar {
+    position top
+    font pango:ProFontIIxNerdFont 11
+    status_command i3status-rs
+    colors {
+        background #f5f1ea
+        statusline #3b3a45
+        separator  #c9c2d6
+        focused_workspace  #b8a9d9 #b8a9d9 #3b3a45
+        active_workspace   #e8e2f0 #e8e2f0 #3b3a45
+        inactive_workspace #f5f1ea #f5f1ea #6e6a7c
+        urgent_workspace   #f0b6c4 #f0b6c4 #3b3a45
+    }
+}

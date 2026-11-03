@@ -1,0 +1,49 @@
+[theme]
+theme = "plain"
+[theme.overrides]
+separator = "native"
+idle_bg = "#f5f1ea"
+idle_fg = "#3b3a45"
+info_bg = "#a9cbe8"
+info_fg = "#3b3a45"
+good_bg = "#a8d8c0"
+good_fg = "#3b3a45"
+warning_bg = "#f2d49b"
+warning_fg = "#3b3a45"
+critical_bg = "#e8a0a0"
+critical_fg = "#3b3a45"
+[icons]
+icons = "none"
+
+[[block]]
+block = "cpu"
+interval = 2
+format = " CPU $utilization "
+
+[[block]]
+block = "memory"
+interval = 5
+format = " RAM $mem_used_percents "
+
+[[block]]
+block = "net"
+device = "wlo1"
+format = " $ssid "
+
+[[block]]
+block = "sound"
+driver = "pulseaudio"
+format = " VOL $volume "
+
+[[block]]
+block = "battery"
+format = " BAT $percentage "
+
+[[block]]
+block = "backlight"
+format = " BRI $brightness "
+
+[[block]]
+block = "time"
+interval = 60
+format = " $timestamp.datetime(f:'%a %d %b %I:%M') "
